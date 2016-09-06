@@ -77,24 +77,30 @@ class SnackbarManager {
     public void show(int duration, Callback callback) {
 
         if(multiSnackBars) {
-            if (isCurrentSnackbar(callback)) {
-                // Means that the callback is already in the queue. We'll just update the duration
-                mCurrentSnackbar.duration = duration;
-                // If this is the TSnackbar currently being shown, call re-schedule it's
-                // timeout
-                mHandler.removeCallbacksAndMessages(mCurrentSnackbar);
-                scheduleTimeoutLocked(mCurrentSnackbar);
-                return;
-            } else if (isNextSnackbar(callback)) {
-                // We'll just update the duration
-                mNextSnackbar.duration = duration;
-            } else {
-                // Else, we need to create a new record and queue it
-                mNextSnackbar = new SnackbarRecord(duration, callback);
-            }
+            mCurrentSnackbar.duration = duration;
+            mHandler.removeCallbacksAndMessages(mCurrentSnackbar);
+            scheduleTimeoutLocked(mCurrentSnackbar);
+
+
+
+//            if (isCurrentSnackbar(callback)) {
+//                // Means that the callback is already in the queue. We'll just update the duration
+//                mCurrentSnackbar.duration = duration;
+//                // If this is the TSnackbar currently being shown, call re-schedule it's
+//                // timeout
+//                mHandler.removeCallbacksAndMessages(mCurrentSnackbar);
+//                scheduleTimeoutLocked(mCurrentSnackbar);
+//                return;
+//            } else if (isNextSnackbar(callback)) {
+//                // We'll just update the duration
+//                mNextSnackbar.duration = duration;
+//            } else {
+//                // Else, we need to create a new record and queue it
+//                mNextSnackbar = new SnackbarRecord(duration, callback);
+//            }
 
             // Clear out the current snackbar
-            mCurrentSnackbar = null;
+//            mCurrentSnackbar = null;
             // Otherwise, just show it now
             showNextSnackbarLocked();
         } else {

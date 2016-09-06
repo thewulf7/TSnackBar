@@ -641,6 +641,15 @@ public final class TSnackbar {
 
         return this;
     }
+
+    public TSnackbar setMargin(int left, int top, int right, int bottom)
+    {
+        LinearLayout.LayoutParams lp = ((SnackbarLayout) getView()).getLayoutParams();
+        lp.setMargins(left, top, right, bottom);
+        ((SnackbarLayout) getView()).setLayoutParams(lp);
+
+        return this;
+    }
     
     public static class SnackbarLayout extends LinearLayout {
         private TextView mMessageView;
@@ -680,9 +689,6 @@ public final class TSnackbar {
 
             setClickable(true);
 
-            
-            
-            
             LayoutInflater.from(context)
                     .inflate(R.layout.tsnackbar_layout_include, this);
 
