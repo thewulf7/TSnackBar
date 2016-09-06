@@ -77,11 +77,9 @@ class SnackbarManager {
     public void show(int duration, Callback callback) {
 
         if(multiSnackBars) {
-            mCurrentSnackbar.duration = duration;
-            mHandler.removeCallbacksAndMessages(mCurrentSnackbar);
-            scheduleTimeoutLocked(mCurrentSnackbar);
-
-
+            mNextSnackbar = new SnackbarRecord(duration, callback);
+            mHandler.removeCallbacksAndMessages(mNextSnackbar);
+            scheduleTimeoutLocked(mNextSnackbar);
 
 //            if (isCurrentSnackbar(callback)) {
 //                // Means that the callback is already in the queue. We'll just update the duration
