@@ -644,7 +644,7 @@ public final class TSnackbar {
 
     public TSnackbar setMargin(int left, int top, int right, int bottom)
     {
-        LinearLayout.LayoutParams lp = ((SnackbarLayout) getView()).getLayoutParams();
+        ViewGroup.LayoutParams lp = ((SnackbarLayout) getView()).getLayoutParams();
         lp.setMargins(left, top, right, bottom);
         ((SnackbarLayout) getView()).setLayoutParams(lp);
 
