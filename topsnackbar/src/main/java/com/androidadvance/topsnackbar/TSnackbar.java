@@ -613,6 +613,20 @@ public final class TSnackbar {
         return false;
     }
 
+    public TSnackbar setTextColor(Integer color)
+    {
+        TextView textView = (TextView) getView().findViewById(com.androidadvance.topsnackbar.R.id.snackbar_text);
+        textView.setTextColor(color);
+
+        return this;
+    }
+
+    public TSnackbar setBackgroundColor(Integer color)
+    {
+        getView().setBackgroundColor(color);
+
+        return this;
+    }
     
     public static class SnackbarLayout extends LinearLayout {
         private TextView mMessageView;
