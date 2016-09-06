@@ -390,6 +390,12 @@ public final class TSnackbar {
                 .isCurrent(mManagerCallback);
     }
 
+    public TSnackbar setMultiSnackBars(boolean multiSnackBars)
+    {
+        SnackbarManager.getInstance().setMulti(multiSnackBars);
+
+        return this;
+    }
     
     public boolean isShownOrQueued() {
         return SnackbarManager.getInstance()
@@ -625,6 +631,13 @@ public final class TSnackbar {
     public TSnackbar setBackgroundColor(Integer color)
     {
         getView().setBackgroundColor(color);
+
+        return this;
+    }
+
+    public TSnackbar setPadding(int left, int top, int right, int bottom)
+    {
+        ((SnackbarLayout) getView()).setPadding(left, top, right, bottom);
 
         return this;
     }
