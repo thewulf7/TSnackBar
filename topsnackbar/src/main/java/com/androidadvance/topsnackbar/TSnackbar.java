@@ -450,7 +450,7 @@ public final class TSnackbar {
                 });
                 ((CoordinatorLayout.LayoutParams) lp).setBehavior(behavior);
             }
-            mParent.addView(mView);
+            mParent.addView(mView, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         }
 
         mView.setOnAttachStateChangeListener(new SnackbarLayout.OnAttachStateChangeListener() {
